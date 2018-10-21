@@ -1,0 +1,99 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#2E3443</item>
+        <item name="colorPrimaryDark">#2E3443</item>
+        <item name="colorAccent">#2E3443</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ButtonsStyle">
+        <item name="android:background">#FF00FF</item>
+    </style>
+
+    <style name="RoundedCornerButton">
+        <item name="background">@drawable/button_rounded_corners_light</item>
+        <item name="colorButtonNormal">#1a237e</item>
+        <item name="colorControlHighlight">#673ab7</item>
+    </style>
+
+    <style name="BigButtonStyle">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@drawable/button_rounded_corners_light</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:translationZ">4dp</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="NormalButtonStyle">
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/button_rounded_corners_light</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:translationZ">4dp</item>
+    </style>
+
+    <style name="CircleStyle">
+        <item name="android:elevation">10dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:translationZ">4dp</item>
+    </style>
+
+    <style name="ProgressBarStyle">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="ThemeOverlay.MyNoTitleActivity" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:background">@drawable/button_rounded_corners_light</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:translationZ">4dp</item>
+        <item name="android:visibility">visible</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="smallButtonStyle">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:background">@drawable/small_button_rounded_corners</item>
+
+        <item name="android:elevation">8dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:translationZ">3dp</item>
+    </style>
+
+    <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
+        <item name="controlBackground">@drawable/button_rounded_corners_dark</item>
+    </style>
+
+    <style name="CheckBoxStyle">
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:button">@drawable/checkbox_rounded_corners</item>
+    </style>
+
+</resources>

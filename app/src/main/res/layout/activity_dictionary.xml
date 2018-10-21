@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.choose.DictionaryActivity">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Czech"
+        android:id="@+id/word_text_czech"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:textSize="36sp"
+        android:layout_above="@+id/word_text_russian"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:textColor="@color/colorAccent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Russian"
+        android:id="@+id/word_text_russian"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"
+        android:textSize="36sp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remembered"
+        android:layout_below="@id/word_text_russian"
+        android:onClick="onWordDictClick"
+        android:layout_centerInParent="true"
+        android:padding="16dp"
+        android:id="@+id/word_dict_button"
+        android:visibility="gone"
+        style="@style/smallButtonStyle"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Продолжить изучение"
+        android:layout_below="@id/word_dict_button"
+        android:onClick="onGoStudyClick"
+        android:layout_centerInParent="true"
+        style="@style/BigButtonStyle"
+        android:id="@+id/word_dict_next_button"
+        android:visibility="gone" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать слова из другой группы"
+        android:layout_below="@id/word_dict_next_button"
+        android:onClick="onGoChangeActivityClick"
+        android:layout_centerInParent="true"
+        android:padding="16dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/word_dict_another_group_button"
+        android:visibility="gone"
+        style="@style/BigButtonStyle"/>
+
+</RelativeLayout>

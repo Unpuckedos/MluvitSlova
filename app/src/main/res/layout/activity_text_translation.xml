@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.study.TextTranslationActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp"
+        android:text="Русский"
+        android:textColor="@color/colorAccent"
+        android:textSize="36sp"
+        android:id="@+id/trans_text_view"
+        android:layout_marginBottom="64dp"/>
+
+    <Button
+        style="@style/BigButtonStyle"
+        android:visibility="gone"
+        android:text="Вернуться в меню"
+        android:onClick="onGoToMenuClick"
+        android:id="@+id/dict_go_to_menu"
+        android:layout_below="@+id/trans_text_view"
+        android:layout_marginTop="16dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/trans_text_view"
+        android:paddingRight="16dp"
+
+        android:clipToPadding="false">
+
+        <ImageButton
+            android:id="@+id/get_ans_button"
+            android:onClick="onGetAnswerClick"
+            android:src="@drawable/baseline_send_white_18dp"
+            style="@style/smallButtonStyle"
+            android:layout_alignParentRight="true"
+            android:padding="16dp"
+            android:clipToPadding="false"/>
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Перевод"
+            android:textSize="24sp"
+            android:id="@+id/trans_edit_text"
+            android:layout_toLeftOf="@+id/get_ans_button"
+            android:clipToPadding="false"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trans_text_view"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/trans_answer_box"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/trans_text_answer"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            android:text="Верно !"/>
+        <Button
+            style="@style/BigButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/trans_text_answer"
+            android:layout_centerHorizontal="true"
+            android:onClick="onGoNextClick"
+            android:text="Далее"
+            android:layout_margin="16dp"
+            android:id="@+id/trans_bt_next"/>
+    </RelativeLayout>
+
+</RelativeLayout>
