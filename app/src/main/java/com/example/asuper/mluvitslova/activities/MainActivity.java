@@ -2,6 +2,8 @@ package com.example.asuper.mluvitslova.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.asuper.mluvitslova.R;
 import com.example.asuper.mluvitslova.activities.study.bigtext.BigTextChoiseActivity;
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
     String nextIntent;
     Boolean key = true;
-    FrameLayout circle;
     Button dict, texts, words;
     Boolean isDataReady = false;
     ProgressBar progressBar;
@@ -51,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        circle = findViewById(R.id.circleMain);
         dict = findViewById(R.id.dict_main);
         texts = findViewById(R.id.texts_main);
         words = findViewById(R.id.word_main);
@@ -189,5 +189,24 @@ public class MainActivity extends AppCompatActivity {
 
         DataHandler.fRef.addValueEventListener(startListener);
         Log.i("TAG", "IN ON RESUME");
+    }
+
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Нажмите еще раз, чтобы выйти", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }

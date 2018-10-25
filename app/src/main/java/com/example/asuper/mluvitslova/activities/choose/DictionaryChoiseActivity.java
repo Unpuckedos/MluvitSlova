@@ -46,5 +46,6 @@ public class DictionaryChoiseActivity extends AppCompatActivity {
         super.onResume();
         WordsTypeAdapter wordsAdapter = new WordsTypeAdapter(this, DataHandler.arrayWordsTypes);
         listView.setAdapter(wordsAdapter);
+        Log.i("TAG", "arrayWordsTypes size is " + DataHandler.arrayWordsTypes.size());
     }
 }

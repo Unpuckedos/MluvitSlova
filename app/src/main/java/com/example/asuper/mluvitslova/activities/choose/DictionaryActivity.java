@@ -94,7 +94,6 @@ public class DictionaryActivity extends AppCompatActivity {
         }else{
             intent = new Intent(this, DictionaryStudyActivity.class);
         }
-        DataHandler.arrayDictWordUserStudyButtons = (ArrayList<DictionaryWordUser>) DataHandler.arrayDictWordUserStudy.clone();
         startActivity(intent);
         setResult(RESULT_OK, new Intent().putExtra("finish", true));
         finish();

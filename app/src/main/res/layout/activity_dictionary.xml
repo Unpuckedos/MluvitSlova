@@ -36,6 +36,7 @@
         android:textSize="36sp"
         android:textAlignment="center"
         android:visibility="gone"
+        android:textColor="@color/colorAccent"
         />
 
     <Button
@@ -48,7 +49,7 @@
         android:padding="16dp"
         android:id="@+id/word_dict_button"
         android:visibility="gone"
-        style="@style/smallButtonStyle"
+        style="@style/BigButtonStyle"
         />
 
     <Button

@@ -11,14 +11,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baoyachi.stepview.HorizontalStepView;
+import com.baoyachi.stepview.bean.StepBean;
 import com.example.asuper.mluvitslova.R;
 import com.example.asuper.mluvitslova.core.DataHandler;
 import com.example.asuper.mluvitslova.core.models.DictionaryWordUser;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class TextTranslationActivity extends AppCompatActivity {
 
+    int countWords;
+    int currentWord = 0;
+    List<StepBean> list;
+    HorizontalStepView stepProgress;
     TextView wordText;
     EditText editText;
     RelativeLayout answerBox;
@@ -35,6 +43,8 @@ public class TextTranslationActivity extends AppCompatActivity {
         answerBox = findViewById(R.id.trans_answer_box);
         answerText = findViewById(R.id.trans_text_answer);
         getAnsBt = findViewById(R.id.get_ans_button);
+        stepProgress = findViewById(R.id.step_progress_bar_text_edit);
+        setStepProgress();
         DataHandler.updateK();
         word = DataHandler.getWord();
         wordText.setText(word.getRussian());
@@ -48,6 +58,11 @@ public class TextTranslationActivity extends AppCompatActivity {
         if(DataHandler.k < DataHandler.arrayDictWordUserStudy.size() - 1){
             word = DataHandler.getWord();
             wordText.setText(word.getRussian());
+            if(currentWord == 6){
+                clearStepList();
+                stepProgress.setStepViewTexts(list);
+                currentWord = 0;
+            }
         }else{
             wordText.setText("Слова закончились");
             editText.setVisibility(View.GONE);
@@ -83,6 +98,10 @@ public class TextTranslationActivity extends AppCompatActivity {
         if(word.getKnowing() < 5){
             word = word.getUpdatedKnowing(word.getKnowing() + 1);
         }
+        list.set(currentWord, new StepBean("", 1));
+        stepProgress.setStepViewTexts(list);
+        currentWord++;
+        countWords--;
     }
 
     private void wrongAnswer(){
@@ -92,9 +111,35 @@ public class TextTranslationActivity extends AppCompatActivity {
         }else{
             word.setTime(new Date());
         }
+        currentWord++;
+        countWords--;
     }
 
     public void onGoToMenuClick(View view) {
         finish();
+    }
+
+    private void clearStepList(){
+        list.clear();
+        if(countWords >= 6){
+            for (int i = 0; i < 6; i++){
+                list.add(new StepBean("", -1));
+            }
+        }else{
+            for (int i = 0; i < countWords; i++){
+                list.add(new StepBean("", -1));
+            }
+        }
+    }
+
+    private void setStepProgress(){
+        list = new ArrayList<>();
+        stepProgress.setStepsViewIndicatorUnCompletedLineColor(getResources().getColor(R.color.lineColor));
+        stepProgress.setStepsViewIndicatorDefaultIcon(getDrawable(R.drawable.unchecked_icon));
+        stepProgress.setStepsViewIndicatorCompleteIcon(getDrawable(R.drawable.checked_icon));
+        stepProgress.setStepsViewIndicatorCompletedLineColor(getResources().getColor(R.color.lineColor));
+        countWords = DataHandler.arrayDictWordUserStudy.size();
+        clearStepList();
+        stepProgress.setStepViewTexts(list);
     }
 }

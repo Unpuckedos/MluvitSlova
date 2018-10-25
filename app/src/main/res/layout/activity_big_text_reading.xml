@@ -29,7 +29,8 @@
 
 
     <ImageButton
-        android:src="@drawable/baseline_send_white_18dp"
+        android:src="@drawable/arrow_icon"
+        android:scaleType="fitCenter"
         style="@style/smallButtonStyle"
         android:padding="16dp"
         android:layout_marginRight="16dp"

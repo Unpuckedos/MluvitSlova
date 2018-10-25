@@ -18,7 +18,6 @@ public class BigTextQuestionsActivity extends AppCompatActivity {
     ListView listView;
     QuestionsAdapter adapter;
     LinearLayout resultBox;
-    Button getResultButton;
     int id;
 
     @Override
@@ -26,8 +25,6 @@ public class BigTextQuestionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_big_text_questions);
         listView = findViewById(R.id.questions_list_view);
-        resultBox = findViewById(R.id.questions_result_box);
-        getResultButton = findViewById(R.id.questions_get_result_button);
 
         id = getIntent().getIntExtra("id", 0);
         Log.i("TAG", "id is " + id);
@@ -38,13 +35,12 @@ public class BigTextQuestionsActivity extends AppCompatActivity {
     public void onGetResultQuestionsClick(View view){
         adapter.setReady();
         adapter.notifyDataSetChanged();
-        resultBox.setVisibility(View.VISIBLE);
-        getResultButton.setVisibility(View.GONE);
         TextModel currentText = DataHandler.arrayTexts.get(id);
         if(adapter.getKnowing()){
             currentText.setKnowing(true);
         }
         DataHandler.setUserFinishedTexts(id);
+        Log.i("TAG", "onGetResultQuestionsClick");
     }
 
     public void onBackToTextsClick(View view) {

@@ -27,7 +27,6 @@ public class DataHandler {
     public static DictionaryIDs ids;
     public static final ArrayList<DictionaryWordUser> arrayDictWordUser = new ArrayList<>();
     public static ArrayList<DictionaryWordUser> arrayDictWordUserStudy = new ArrayList<>();
-    public static ArrayList<DictionaryWordUser> arrayDictWordUserStudyButtons = new ArrayList<>();
     public static DataSnapshot dataSnap;
     public static final int MIN_WORDS = 4;
     public static final int MAX_WORDS = 8;
@@ -79,9 +78,6 @@ public class DataHandler {
                 arrayDictWordUserStudy = userSnap.getValue(t);
 
                 Log.i("TAG", arrayDictWordUserStudy.size() + "GetUserDict size = ");
-                arrayDictWordUserStudyButtons = (ArrayList<DictionaryWordUser>) arrayDictWordUserStudy.clone();
-                Log.i("TAG", "Надеюсь, что это здесь есть " + arrayDictWordUserStudy.get(0).getRussian());
-                Log.i("TAG", "DataHandler.arrayDictWordUserStudyButtons.size = " + DataHandler.arrayDictWordUserStudyButtons.size());
             }else{
                 arrayDictWordUserStudy.clear();
             }

@@ -9,6 +9,7 @@
         style="@style/BigButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/list_element"
         android:text="Готово"
         android:onClick="onGetResultQuestionsClick"
         android:id="@+id/questions_get_result_button"
@@ -17,29 +18,27 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
-    <LinearLayout
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/questions_get_result_button">
-
-        <TextView
-            android:textColor="@color/colorAccent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/questions_list_text"
-            android:text="Какаим был арестотель до того, как его облили водой и скинули в море"
-            android:maxEms="9"
-            android:textSize="24sp"
-            style="@style/BigButtonStyle"
-            android:padding="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="8dp"/>
+        android:id="@+id/list_element">
 
         <CheckBox
             android:id="@+id/questions_list_checkbox"
-            style="@style/CheckBoxStyle" />
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            style="@style/CheckBoxStyle"
+            android:layout_alignParentRight="true"/>
 
-    </LinearLayout>
+        <TextView
+            style="@style/QuestionsTextStyle"
+            android:id="@+id/questions_list_text"
+            android:text="Какаим был арестотель до того, как его облили водой и скинули в море"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

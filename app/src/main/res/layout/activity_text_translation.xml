@@ -38,7 +38,8 @@
         <ImageButton
             android:id="@+id/get_ans_button"
             android:onClick="onGetAnswerClick"
-            android:src="@drawable/baseline_send_white_18dp"
+            android:src="@drawable/arrow_icon"
+            android:scaleType="fitCenter"
             style="@style/smallButtonStyle"
             android:layout_alignParentRight="true"
             android:padding="16dp"
@@ -80,5 +81,13 @@
             android:layout_margin="16dp"
             android:id="@+id/trans_bt_next"/>
     </RelativeLayout>
+
+
+    <com.baoyachi.stepview.HorizontalStepView
+        android:id="@+id/step_progress_bar_text_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>

@@ -27,7 +27,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">24sp</item>
         <item name="android:background">@drawable/button_rounded_corners_light</item>
-        <item name="android:elevation">5dp</item>
+        <item name="android:elevation">2dp</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:translationZ">4dp</item>
         <item name="android:visibility">visible</item>
@@ -44,7 +44,7 @@
     </style>
 
     <style name="CircleStyle">
-        <item name="android:elevation">10dp</item>
+        <item name="android:elevation">2dp</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:translationZ">4dp</item>
     </style>
@@ -65,7 +65,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">80dp</item>
         <item name="android:background">@drawable/button_rounded_corners_light</item>
-        <item name="android:elevation">10dp</item>
+        <item name="android:elevation">2dp</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:translationZ">4dp</item>
         <item name="android:visibility">visible</item>
@@ -86,14 +86,36 @@
     </style>
 
     <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
-        <item name="controlBackground">@drawable/button_rounded_corners_dark</item>
+        <item name="controlBackground">@drawable/button_rounded_corners_black</item>
     </style>
 
     <style name="CheckBoxStyle">
-        <item name="android:layout_height">80dp</item>
-        <item name="android:layout_width">80dp</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:translationZ">3dp</item>
+    </style>
+
+    <style name="QuestionsTextRightAnsStyle" parent="BigButtonStyle">
+        <item name="android:background">@drawable/button_rounded_corners_black</item>
+    </style>
+
+    <style name="QuestionsTextWrongAnsStyle" parent="BigButtonStyle">
+        <item name="android:background">@drawable/button_rounded_corners_light</item>
+    </style>
+
+    <style name="QuestionsTextStyle" parent="BigButtonStyle">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_toLeftOf">@+id/questions_list_checkbox</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxEms">10</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@drawable/button_rounded_corners_light</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginLeft">8dp</item>
-        <item name="android:button">@drawable/checkbox_rounded_corners</item>
     </style>
 
 </resources>

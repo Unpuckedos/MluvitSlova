@@ -14,29 +14,28 @@
         android:id="@+id/questions_text"
         android:layout_alignParentTop="true"/>
 
-    <LinearLayout
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/questions_text">
 
-        <TextView
-            android:textColor="@color/colorAccent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/questions_list_text"
-            android:text="Какаим был арестотель до того, как его облили водой и скинули в море"
-            android:maxEms="9"
-            android:textSize="24sp"
-            style="@style/BigButtonStyle"
-            android:padding="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="8dp"/>
-
         <CheckBox
             android:id="@+id/questions_list_checkbox"
-            style="@style/CheckBoxStyle"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            style="@style/CheckBoxStyle"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            style="@style/QuestionsTextStyle"
+            android:id="@+id/questions_list_text"
+            android:text="Какаим был арестотель до того, как его облили водой и скинули в море"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>
 

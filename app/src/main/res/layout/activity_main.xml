@@ -20,7 +20,16 @@
             style="@style/CircleStyle"
             android:layout_gravity="center"
             android:layout_marginTop="32dp"
-            android:id="@+id/circleMain"/>
+            android:id="@+id/circleMain"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher_foreground"
+                android:layout_gravity="center"
+                android:scaleX="1.5"
+                android:scaleY="1.5"/>
+        </FrameLayout>
 
         <Button
             android:text="Словарь"

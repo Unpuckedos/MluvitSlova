@@ -13,7 +13,8 @@
         android:layout_marginTop="64dp"
         android:text="Сzech"
         android:textSize="36sp"
-        android:id="@+id/word_text_view"/>
+        android:id="@+id/word_text_view"
+        android:textColor="@color/colorAccent"/>
     <LinearLayout
         android:id="@+id/top_buttons"
         android:layout_width="match_parent"
@@ -45,7 +46,8 @@
     </LinearLayout>
     <ImageButton
         style="@style/smallButtonStyle"
-        android:src="@drawable/baseline_send_white_18dp"
+        android:src="@drawable/arrow_icon"
+        android:scaleType="fitCenter"
         android:onClick="onGoNextClick"
         android:layout_margin="16dp"
         android:id="@+id/word_bt_next"
@@ -60,6 +62,13 @@
         android:id="@+id/dict_go_to_menu"
         android:layout_below="@+id/word_text_view"
         android:layout_marginTop="16dp"/>
+
+    <com.baoyachi.stepview.HorizontalStepView
+        android:id="@+id/step_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
 

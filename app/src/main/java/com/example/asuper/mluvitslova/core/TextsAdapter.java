@@ -67,7 +67,9 @@ public class TextsAdapter extends BaseAdapter implements ListAdapter{
                 context.startActivity(intent);
             }
         });
-
+        if(arrayTexts.get(position).knowing){
+            button.setEnabled(false);
+        }
         return view;
     }
 }

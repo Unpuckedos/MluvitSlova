@@ -4,7 +4,7 @@
     android:insetLeft="4dp"
     android:insetRight="4dp"
     android:insetTop="6dp">
-    <ripple android:color="?attr/colorControlHighlight">
+    <ripple android:color="#131C2D">
         <item>
             <shape android:shape="rectangle"
                 android:tint="#2E3443">

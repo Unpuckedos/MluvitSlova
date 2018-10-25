@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity{
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Ошибка, неверный логин или пароль",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -95,23 +95,16 @@ public class LoginActivity extends AppCompatActivity{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
+                            Log.d(TAG, "Аккаунт успешно создан");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Log.w(TAG, "Ошибка, повторите попытку позже", task.getException());
+                            Toast.makeText(LoginActivity.this, "Ошибка, повторите попытку позже",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-                        // [START_EXCLUDE]
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this,"AUTH FAILED", Toast.LENGTH_LONG).show();
-                        }
-
-                        // [END_EXCLUDE}
                     }
                 });
         // [END sign_in_with_email]
@@ -123,19 +116,11 @@ public class LoginActivity extends AppCompatActivity{
     }
 
     private void sendEmailVerification() {
-        // Disable button
-       // findViewById(R.id.verifyEmailButton).setEnabled(false);
-
-        // Send verification email
-        // [START send_email_verification]
         final FirebaseUser user = mAuth.getCurrentUser();
         user.sendEmailVerification()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        // [START_EXCLUDE]
-                        // Re-enable button
-                      //  findViewById(R.id.verifyEmailButton).setEnabled(true);
 
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this,
@@ -156,20 +141,22 @@ public class LoginActivity extends AppCompatActivity{
     private boolean validateForm() {
         boolean valid = true;
 
-        String email = mEmailField.getText().toString();
+        String email = mEmailField.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
-            mEmailField.setError("Required.");
+            Toast.makeText(LoginActivity.this, "Введите email", Toast.LENGTH_LONG).show();
             valid = false;
-        } else {
+        } else if(!email.contains("@")){
             mEmailField.setError(null);
+            Toast.makeText(LoginActivity.this, "Введите корректный email", Toast.LENGTH_LONG).show();
+            valid = false;
         }
 
         String password = mPasswordField.getText().toString();
         if (TextUtils.isEmpty(password)) {
-            mPasswordField.setError("Required.");
+            Toast.makeText(LoginActivity.this, "Введите пароль", Toast.LENGTH_LONG).show();
             valid = false;
-        } else {
-            mPasswordField.setError(null);
+        }else if(password.length() >= 8){
+            Toast.makeText(LoginActivity.this, "Минимальная длинная пароля 8 символов", Toast.LENGTH_LONG).show();
         }
 
         return valid;
@@ -179,27 +166,18 @@ public class LoginActivity extends AppCompatActivity{
 
         if (user != null) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
-          //  findViewById(R.id.verifyEmailButton).setEnabled(!user.isEmailVerified());
+            finish();
         } else {
-          //  findViewById(R.id.emailPasswordButtons).setVisibility(View.VISIBLE);
             findViewById(R.id.emailPasswordFields).setVisibility(View.VISIBLE);
-          //  findViewById(R.id.signedInButtons).setVisibility(View.GONE);
         }
     }
 
     public void onCreateAccountClick(View view){
         createAccount(mEmailField.getText().toString(), mPasswordField.getText().toString());
+       // sendEmailVerification();
     }
 
     public void onSignInClick(View view){
         signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
     }
-        /*
-    } else if (i == R.id.signOutButton) {
-            signOut();
-        } else if (i == R.id.verifyEmailButton) {
-            sendEmailVerification();
-        }
-     */
 }
