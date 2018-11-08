@@ -131,6 +131,8 @@ public class DictionaryStudyActivity extends AppCompatActivity {
             word.setTime(new Date());
             Log.i("TAG", "word.getKnowing() = " + word.getKnowing());
         }
+        list.set(currentWord, new StepBean("", 0));
+        stepProgress.setStepViewTexts(list);
         currentWord++;
         countWords--;
     }
@@ -204,6 +206,7 @@ public class DictionaryStudyActivity extends AppCompatActivity {
         stepProgress.setStepsViewIndicatorUnCompletedLineColor(getResources().getColor(R.color.lineColor));
         stepProgress.setStepsViewIndicatorDefaultIcon(getDrawable(R.drawable.unchecked_icon));
         stepProgress.setStepsViewIndicatorCompleteIcon(getDrawable(R.drawable.checked_icon));
+        stepProgress.setStepsViewIndicatorAttentionIcon(getDrawable(R.drawable.wrong_icon));
         stepProgress.setStepsViewIndicatorCompletedLineColor(getResources().getColor(R.color.lineColor));
         countWords = DataHandler.arrayDictWordUserStudy.size();
         clearStepList();

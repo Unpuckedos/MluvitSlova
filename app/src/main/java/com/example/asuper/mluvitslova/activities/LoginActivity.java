@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity{
 
 
-    private static final String TAG = "EmailPassword";
+    private static final String TAG = "TAG";
 
     private EditText mEmailField;
     private EditText mPasswordField;
@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity{
 
     private void createAccount(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
+        Log.d(TAG, "validate form = " + validateForm());
         if (!validateForm()) {
             return;
         }
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity{
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Ошибка, неверный логин или пароль",
+                            Toast.makeText(LoginActivity.this, "Ошибка, повторите попытку позже",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -101,7 +102,7 @@ public class LoginActivity extends AppCompatActivity{
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "Ошибка, повторите попытку позже", task.getException());
-                            Toast.makeText(LoginActivity.this, "Ошибка, повторите попытку позже",
+                            Toast.makeText(LoginActivity.this, "Ошибка, неверный логин или пароль",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -155,8 +156,11 @@ public class LoginActivity extends AppCompatActivity{
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(LoginActivity.this, "Введите пароль", Toast.LENGTH_LONG).show();
             valid = false;
-        }else if(password.length() >= 8){
+        }
+        if(password.length() < 8){
+            Log.i("TAG", "Password len = " + password.length());
             Toast.makeText(LoginActivity.this, "Минимальная длинная пароля 8 символов", Toast.LENGTH_LONG).show();
+            valid = false;
         }
 
         return valid;

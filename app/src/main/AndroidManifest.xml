@@ -9,15 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.choose.DictionaryActivity" />
-        <activity android:name=".activities.study.DictionaryStudyActivity" />
-        <activity android:name=".activities.choose.DictionaryChoiseActivity" />
-        <activity android:name=".activities.study.TextTranslationActivity" />
-        <activity android:name=".activities.study.bigtext.BigTextReadingActivity" />
-        <activity android:name=".activities.study.bigtext.BigTextChoiseActivity" />
-        <activity android:name=".activities.study.bigtext.BigTextQuestionsActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.choose.DictionaryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.study.DictionaryStudyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.choose.DictionaryChoiseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.study.TextTranslationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.study.bigtext.BigTextReadingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.study.bigtext.BigTextChoiseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.study.bigtext.BigTextQuestionsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

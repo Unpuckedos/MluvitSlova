@@ -1,7 +1,9 @@
 package com.example.asuper.mluvitslova.core;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import com.example.asuper.mluvitslova.R;
 import com.example.asuper.mluvitslova.activities.study.bigtext.BigTextReadingActivity;
 import com.example.asuper.mluvitslova.core.models.TextModel;
 
+import java.net.CookieHandler;
 import java.util.ArrayList;
 
 public class TextsAdapter extends BaseAdapter implements ListAdapter{
@@ -44,7 +47,7 @@ public class TextsAdapter extends BaseAdapter implements ListAdapter{
     }
 
     @NonNull
-    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, final View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
         if(view == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -65,10 +68,11 @@ public class TextsAdapter extends BaseAdapter implements ListAdapter{
                 Intent intent = new Intent(context, BigTextReadingActivity.class);
                 intent.putExtra("id", position);
                 context.startActivity(intent);
+                ((Activity)context).finish();
             }
         });
         if(arrayTexts.get(position).knowing){
-            button.setEnabled(false);
+            button.setTextColor(Color.LTGRAY);
         }
         return view;
     }

@@ -23,8 +23,7 @@
         android:layout_above="@+id/word_text_russian"
         android:textAlignment="center"
         android:visibility="gone"
-        android:textColor="@color/colorAccent"
-        />
+        android:textColor="@color/colorAccent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,30 +39,31 @@
         />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/remembered"
         android:layout_below="@id/word_text_russian"
         android:onClick="onWordDictClick"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="0dp"
         android:padding="16dp"
         android:id="@+id/word_dict_button"
-        android:visibility="gone"
         style="@style/BigButtonStyle"
-        />
+        android:visibility="gone" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Продолжить изучение"
         android:layout_below="@id/word_dict_button"
         android:onClick="onGoStudyClick"
         android:layout_centerInParent="true"
+        android:layout_marginTop="8dp"
         style="@style/BigButtonStyle"
         android:id="@+id/word_dict_next_button"
-        android:visibility="gone" />
+        android:visibility="gone"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Выбрать слова из другой группы"
         android:layout_below="@id/word_dict_next_button"
@@ -72,7 +72,7 @@
         android:padding="16dp"
         android:layout_marginTop="8dp"
         android:id="@+id/word_dict_another_group_button"
-        android:visibility="gone"
-        style="@style/BigButtonStyle"/>
+        style="@style/BigButtonStyle"
+        android:visibility="gone"/>
 
 </RelativeLayout>

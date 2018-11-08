@@ -2,10 +2,7 @@ package com.example.asuper.mluvitslova.core;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +11,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListAdapter;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.example.asuper.mluvitslova.R;
-import com.example.asuper.mluvitslova.activities.LoginActivity;
 import com.example.asuper.mluvitslova.core.models.QuestonModel;
 
 import java.util.ArrayList;
@@ -31,7 +25,8 @@ public class QuestionsAdapter extends BaseAdapter implements ListAdapter {
     boolean checkStates[];
     private boolean isReady = false;
     private boolean knowing = true;
-    public Button getResultButton;
+    private Button getResultButton;
+
 
     public QuestionsAdapter(Context context, ArrayList<QuestonModel> arrayQuestions){
         this.arrayQuestions = arrayQuestions;
@@ -57,34 +52,42 @@ public class QuestionsAdapter extends BaseAdapter implements ListAdapter {
     @Override
     public View getView(final int pos, View convertView, ViewGroup viewGroup) {
         View view = convertView;
-        if(pos == 0){
-            if(view == null){
+        if(view == null){
+            if(pos == 0){
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.questions_text_view_only_layout, null);
-            }
-        }else if(pos == arrayQuestions.size()-1){
-            if(view == null){
+            }else if(pos == arrayQuestions.size()-1){
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.questions_button_only_layout, null);
-            }
-            if(getResultButton == null){
-                getResultButton = view.findViewById(R.id.questions_get_result_button);
-            }
-            Log.i("TAG", "getResultButton is " + getResultButton);
-        }else{
-            if(view == null){
+                if(getResultButton == null){
+                    getResultButton = view.findViewById(R.id.questions_get_result_button);
+                }
+                Log.i("TAG", "getResultButton is " + getResultButton);
+            }else{
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 view = inflater.inflate(R.layout.questions_list_element_layout, null);
             }
         }
-        TextView text = view.findViewById(R.id.questions_list_text);
+        Button button = view.findViewById(R.id.questions_list_text);
         checkBox = view.findViewById(R.id.questions_list_checkbox);
-        text.setText(arrayQuestions.get(pos).getQuestion());
-
+        button.setText(arrayQuestions.get(pos).getQuestion());
+        button.setTag(checkBox);
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 checkStates[pos] = b;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(((CheckBox)view.getTag()).isChecked()){
+                    ((CheckBox)view.getTag()).setChecked(false);
+                }else{
+                    ((CheckBox)view.getTag()).setChecked(true);
+                    Log.i("TAG", "Questions adapter pos is " + pos);
+                }
             }
         });
         if(isReady){

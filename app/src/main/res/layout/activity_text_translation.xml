@@ -24,7 +24,7 @@
         android:onClick="onGoToMenuClick"
         android:id="@+id/dict_go_to_menu"
         android:layout_below="@+id/trans_text_view"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -87,7 +87,7 @@
         android:id="@+id/step_progress_bar_text_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         />
 
 </RelativeLayout>

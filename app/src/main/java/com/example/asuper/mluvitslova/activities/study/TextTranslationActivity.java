@@ -33,6 +33,7 @@ public class TextTranslationActivity extends AppCompatActivity {
     TextView answerText;
     ImageButton getAnsBt;
     DictionaryWordUser word;
+    Button goToMenuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class TextTranslationActivity extends AppCompatActivity {
         answerText = findViewById(R.id.trans_text_answer);
         getAnsBt = findViewById(R.id.get_ans_button);
         stepProgress = findViewById(R.id.step_progress_bar_text_edit);
+        goToMenuButton = findViewById(R.id.dict_go_to_menu);
         setStepProgress();
         DataHandler.updateK();
         word = DataHandler.getWord();
@@ -67,6 +69,7 @@ public class TextTranslationActivity extends AppCompatActivity {
             wordText.setText("Слова закончились");
             editText.setVisibility(View.GONE);
             getAnsBt.setVisibility(View.GONE);
+            goToMenuButton.setVisibility(View.VISIBLE);
         }
      //   DataHandler.arrayDictWordUserStudy.remove(0);
         for(int i = 0; i < DataHandler.arrayDictWordUserStudy.size(); i++){
@@ -102,6 +105,7 @@ public class TextTranslationActivity extends AppCompatActivity {
         stepProgress.setStepViewTexts(list);
         currentWord++;
         countWords--;
+        Log.i("TAG", "list size is " + list.size());
     }
 
     private void wrongAnswer(){
@@ -111,6 +115,8 @@ public class TextTranslationActivity extends AppCompatActivity {
         }else{
             word.setTime(new Date());
         }
+        list.set(currentWord, new StepBean("", 0));
+        stepProgress.setStepViewTexts(list);
         currentWord++;
         countWords--;
     }
@@ -137,6 +143,8 @@ public class TextTranslationActivity extends AppCompatActivity {
         stepProgress.setStepsViewIndicatorUnCompletedLineColor(getResources().getColor(R.color.lineColor));
         stepProgress.setStepsViewIndicatorDefaultIcon(getDrawable(R.drawable.unchecked_icon));
         stepProgress.setStepsViewIndicatorCompleteIcon(getDrawable(R.drawable.checked_icon));
+
+        stepProgress.setStepsViewIndicatorAttentionIcon(getDrawable(R.drawable.wrong_icon));
         stepProgress.setStepsViewIndicatorCompletedLineColor(getResources().getColor(R.color.lineColor));
         countWords = DataHandler.arrayDictWordUserStudy.size();
         clearStepList();

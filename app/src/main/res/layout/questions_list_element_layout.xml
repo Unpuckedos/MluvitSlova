@@ -13,9 +13,9 @@
         style="@style/CheckBoxStyle"
         android:layout_alignParentRight="true"/>
 
-    <TextView
+    <Button
         android:id="@+id/questions_list_text"
         android:text="Какаим был арестотель до того, как его облили водой и скинули в море"
-        style="@style/QuestionsTextStyle" />
+        style="@style/QuestionsTextStyle"/>
 
 </RelativeLayout>
