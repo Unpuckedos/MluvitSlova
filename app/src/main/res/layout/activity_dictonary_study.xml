@@ -14,7 +14,8 @@
         android:text="Сzech"
         android:textSize="36sp"
         android:id="@+id/word_text_view"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/colorAccent"
+        android:typeface="serif"/>
     <LinearLayout
         android:id="@+id/top_buttons"
         android:layout_width="match_parent"
@@ -53,6 +54,7 @@
         android:scaleType="fitCenter"
         android:onClick="onGoNextClick"
         android:layout_margin="16dp"
+        android:padding="16dp"
         android:id="@+id/word_bt_next"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -63,8 +65,21 @@
         android:text="Вернуться в меню"
         android:onClick="onGoToMenuClick"
         android:id="@+id/dict_go_to_menu"
-        android:layout_below="@+id/word_text_view"
+        android:layout_below="@+id/finish_text"
         android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_marginTop="64dp"
+        android:text="Слова\nзакончились"
+        android:textSize="36sp"
+        android:id="@+id/finish_text"
+        android:textColor="@color/colorAccent"
+        android:typeface="serif"/>
 
     <com.baoyachi.stepview.HorizontalStepView
         android:id="@+id/step_progress_bar"

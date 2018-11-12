@@ -2,22 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp">
-
-    <Button
-        style="@style/BigButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/list_element"
-        android:text="Готово"
-        android:onClick="onGetResultQuestionsClick"
-        android:id="@+id/questions_get_result_button"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -41,5 +26,18 @@
             />
 
     </RelativeLayout>
+
+    <Button
+        style="@style/BigButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_element"
+        android:text="Готово"
+        android:layout_marginTop="8dp"
+        android:onClick="onGetResultQuestionsClick"
+        android:id="@+id/questions_get_result_button"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
 
 </RelativeLayout>

@@ -75,18 +75,21 @@ public class QuestionsAdapter extends BaseAdapter implements ListAdapter {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                checkStates[pos] = b;
+                if(!isReady){
+                    checkStates[pos] = b;
+                }
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(((CheckBox)view.getTag()).isChecked()){
-                    ((CheckBox)view.getTag()).setChecked(false);
-                }else{
-                    ((CheckBox)view.getTag()).setChecked(true);
-                    Log.i("TAG", "Questions adapter pos is " + pos);
+                if(!isReady){
+                    if(((CheckBox)view.getTag()).isChecked()){
+                        ((CheckBox)view.getTag()).setChecked(false);
+                    }else{
+                        ((CheckBox)view.getTag()).setChecked(true);
+                        Log.i("TAG", "Questions adapter pos is " + pos);
+                    }
                 }
             }
         });

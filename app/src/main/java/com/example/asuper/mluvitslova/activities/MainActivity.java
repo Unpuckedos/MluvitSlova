@@ -109,33 +109,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 intent = new Intent(getApplicationContext(), DictionaryChoiseActivity.class);
                 intent.putExtra("nextIntent", nextIntent);
-                startActivity(intent);
             }
         });
         alertDialog = alertBuilder.create();
 
     }
     public void onDictionaryClick(View view){
-        if(DataHandler.arrayDictWordUserStudy.size() >= DataHandler.MIN_WORDS){
-            intent = new Intent(getApplicationContext(), DictionaryStudyActivity.class);
-            intent.putExtra("nextIntent", "dictStudy");
-            startActivity(intent);
-        }else{
-            Log.i("TAG", "Must start new Activity");
-            nextIntent = "dictStudy";
-            alertDialog.show();
-        }
+        intent = new Intent(getApplicationContext(), DictionaryChoiseActivity.class);
+        intent.putExtra("nextIntent", "dictStudy");
+        startActivity(intent);
     }
 
     public void onTextTransClick(View view){
-        if(DataHandler.arrayDictWordUserStudy.size() >= DataHandler.MIN_WORDS){
-            intent = new Intent(getApplicationContext(), TextTranslationActivity.class);
-            intent.putExtra("nextIntent", "textTrans");
-            startActivity(intent);
-        }else{
-            nextIntent = "textTrans";
-            alertDialog.show();
-        }
+        intent = new Intent(getApplicationContext(), DictionaryChoiseActivity.class);
+        intent.putExtra("nextIntent", "textTrans");
+        startActivity(intent);
     }
 
     public void onBigTextReadClick(View view){

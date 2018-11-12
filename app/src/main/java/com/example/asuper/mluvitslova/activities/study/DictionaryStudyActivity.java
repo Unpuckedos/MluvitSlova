@@ -1,5 +1,6 @@
 package com.example.asuper.mluvitslova.activities.study;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class DictionaryStudyActivity extends AppCompatActivity {
     int countWords;
     TextView wordText;
     ImageButton btNext;
+    TextView finishText;
     Button arrayBt[] = new Button[4];
     DictionaryWordUser word = new DictionaryWordUser();
     String[] tmpArray = new String[4];
@@ -109,7 +111,8 @@ public class DictionaryStudyActivity extends AppCompatActivity {
             }
         }else{
             btNext.setVisibility(View.GONE);
-            wordText.setText("Слова закончились");
+            wordText.setVisibility(View.GONE);
+            finishText.setVisibility(View.VISIBLE);
             setButtonsVisibility(false);
             goToMenuButton.setVisibility(View.VISIBLE);
         }
@@ -185,6 +188,7 @@ public class DictionaryStudyActivity extends AppCompatActivity {
     }
 
     public void onGoToMenuClick(View view){
+        setResult(RESULT_OK, new Intent().putExtra("finish", true));
         finish();
     }
 
@@ -214,6 +218,7 @@ public class DictionaryStudyActivity extends AppCompatActivity {
     }
 
     private void findViews(){
+        finishText = findViewById(R.id.finish_text);
         wordText = findViewById(R.id.word_text_view);
         arrayBt[0] = findViewById(R.id.word_bt1);
         arrayBt[1] = findViewById(R.id.word_bt2);

@@ -1,5 +1,6 @@
 package com.example.asuper.mluvitslova.activities.study;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,11 +35,13 @@ public class TextTranslationActivity extends AppCompatActivity {
     ImageButton getAnsBt;
     DictionaryWordUser word;
     Button goToMenuButton;
+    TextView finishText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_translation);
+        finishText = findViewById(R.id.finish_text);
         wordText = findViewById(R.id.trans_text_view);
         editText = findViewById(R.id.trans_edit_text);
         answerBox = findViewById(R.id.trans_answer_box);
@@ -66,9 +69,10 @@ public class TextTranslationActivity extends AppCompatActivity {
                 currentWord = 0;
             }
         }else{
-            wordText.setText("Слова закончились");
+            wordText.setVisibility(View.GONE);
             editText.setVisibility(View.GONE);
             getAnsBt.setVisibility(View.GONE);
+            finishText.setVisibility(View.VISIBLE);
             goToMenuButton.setVisibility(View.VISIBLE);
         }
      //   DataHandler.arrayDictWordUserStudy.remove(0);
@@ -122,6 +126,7 @@ public class TextTranslationActivity extends AppCompatActivity {
     }
 
     public void onGoToMenuClick(View view) {
+        setResult(RESULT_OK, new Intent().putExtra("finish", true));
         finish();
     }
 

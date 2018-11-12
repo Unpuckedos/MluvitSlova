@@ -13,6 +13,7 @@
         android:layout_centerHorizontal="true"
         android:text="Тексты"
         android:textColor="@color/colorAccent"
+        android:typeface="serif"
         android:textSize="36sp"
         android:id="@+id/text_text_view"
         />
