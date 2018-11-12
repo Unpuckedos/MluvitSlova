@@ -69,7 +69,7 @@ public class DictionaryActivity extends AppCompatActivity {
                     isDataReady = true;
                     getTypedWords();
                     key = false;
-                    if(DataHandler.arrayDictWordUserStudy.size() >= DataHandler.MIN_WORDS){
+                    if(DataHandler.arrayDictWordUserStudy.size() > DataHandler.MIN_WORDS){
                         goStudyButton.setVisibility(View.VISIBLE);
                     }
                 }
@@ -117,7 +117,7 @@ public class DictionaryActivity extends AppCompatActivity {
                 getNewWord();
                 showWord();
 
-                if(DataHandler.arrayDictWordUserStudy.size() >= DataHandler.MIN_WORDS){
+                if(DataHandler.arrayDictWordUserStudy.size() > DataHandler.MIN_WORDS){
                     goStudyButton.setVisibility(View.VISIBLE);
                 }
             }else{
