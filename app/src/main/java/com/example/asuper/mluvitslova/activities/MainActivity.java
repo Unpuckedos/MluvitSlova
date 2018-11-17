@@ -131,25 +131,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void sendTestToDatabase(){
-        String name = "Dílo Boží a dílo Satanovo";
-        String textC = "Bůh stvořil všechna zvířata a z nich si za hlídače zvolil vlky. Vlastně při tom tvoření na jedno zvíře zapomněl, na kozu. A ďábel, který se snažil Stvořitele ve všem napodobovat, tvořil a tvořil, až stvořil kozy, které měly dlouhé tenké ocasy. Taková paráda byla ale kozám ke vzteku, na pastvě zůstávaly obyčejně viset za ocasy v trní, a tak musel Satan chodit s nimi a s velkou námahou každou vysvobozovat. Jednoho dne se ale nad tou věčnou lopotou tak rozlítil, že každé koze ocas ukousnul, a tak mají od těch dob jen směšné pahýly.";
-        String textR = "Бог создал всех животных, и от них он выбрал волков для стража. Фактически, он забыл о создании одного животного, козла. И дьявол, который пытался подражать, создал и сформировал Творца во всем, создал сиськи, у которых были длинные тонкие хвосты. Но такой рай был яростью козла, пастбище обычно держалось за шипами, поэтому сатане приходилось ходить с ними и прилагать большие усилия, чтобы освободить каждого. Однажды, однако, он так рассердился на вечное бремя, что каждый козий хвост кусает, и поэтому у них есть искренние смешные пни.";
-        ArrayList<QuestonModel> arrayQuestions = new ArrayList<>();
-        arrayQuestions.add(new QuestonModel("Бог выбрал тигров ?", false));
-        arrayQuestions.add(new QuestonModel("Бог выбрал животное для пекаря ?", false));
-        arrayQuestions.add(new QuestonModel("Бог забыл о создании лебедей ?", false));
-        arrayQuestions.add(new QuestonModel("Бог выбрал волков ?", true));
-        arrayQuestions.add(new QuestonModel("Бог выбрал животное для стражей ?", true));
-
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("texts").push();
-
-        ArrayList<TextModel> arrayList = new ArrayList<TextModel>();
-        arrayList.add(new TextModel(name, textC, textR, false, arrayQuestions, arrayList.size()));
-        FirebaseDatabase.getInstance().getReference().child("texts").setValue(arrayList);
-    }
-
     private void hideButtonsUntilDataReady(){
         if(progressBar.getVisibility() == View.VISIBLE){
             if(DataHandler.arrayTexts != null & DataHandler.ids != null){
